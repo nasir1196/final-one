@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import {Box, Button, Grid, Typography} from '@mui/material';
 import TextField from '@mui/material/TextField';
@@ -8,8 +9,6 @@ import PhoneIcon from '@mui/icons-material/Phone';
 
 
 const Contact = () => {
-
-
     const handleSubmit = (e:any) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget)

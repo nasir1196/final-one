@@ -1,4 +1,3 @@
-"use client"
 import multiVendor1 from "../../public/source/oneCall/electric/cable-joining.png"
 import multiVendor2 from "../../public/source/oneCall/electric/cable-waring.png"
 import multiVendor3 from "../../public/source/oneCall/electric/cables-show.png"

@@ -9,7 +9,7 @@ export const locationData = [
         logo: ShareLocationOutlinedIcon
     },
     {
-        title: "Al Jahra",
+        title: "Al jahra",
         logo: ShareLocationOutlinedIcon
     },
     {
@@ -21,7 +21,7 @@ export const locationData = [
         logo: ShareLocationOutlinedIcon
     },
     {
-        title: "Mubarak Al-Kabeer",
+        title: "mubarak Al-Kabeer",
         logo: ShareLocationOutlinedIcon
     },
 ];
