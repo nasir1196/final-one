@@ -5,7 +5,7 @@ import Services from "../Services/Services";
 
 const Homes =()=>{
     return(
-        <Box sx={{marginTop:"5rem"}}>
+        <Box sx={{marginTop:"1rem"}}>
             <Banner/>
             <Services/>
 

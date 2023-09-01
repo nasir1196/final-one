@@ -1,14 +1,14 @@
 import {Box, Typography, Grid, Button} from '@mui/material';
 import React from 'react';
 import Image from 'next/image';
-import Plumbing from '../../../public/source/service/Plumbing.png';
-import GasFitting from '../../../public/source/service/GasFitting.png';
-import BlockedDrains from '../../../public/source/service/BlockedDrains.png';
-import ToiledRepairs from '../../../public/source/service/ToiledRepairs.png';
-import LeakingTaps from '../../../public/source/service/LeakingTaps.png';
-import Emergency from '../../../public/source/service/Emergency.png';
-import HotWater from '../../../public/source/service/HotWater.png';
-import DrainRepair from '../../../public/source/service/DrainRepair.png';
+import Plumbing from '@/../public/source/service/Plumbing.png';
+import GasFitting from '@/../public/source/service/GasFitting.png';
+import BlockedDrains from '@/../public/source/service/BlockedDrains.png';
+import ToiledRepairs from '@/../public/source/service/ToiledRepairs.png';
+import LeakingTaps from '@/../public/source/service/LeakingTaps.png';
+import Emergency from '@/../public/source/service/Emergency.png';
+import HotWater from '@/../public/source/service/HotWater.png';
+import DrainRepair from '@/../public/source/service/DrainRepair.png';
 import Link from "next/link";
 
 
@@ -90,7 +90,7 @@ const Services = () => {
 
             </Box>
             <Box sx={{my: '4rem', display: "flex", alignItems: 'center', justifyContent: "center"}}>
-                <Link href="/servicePage">
+                <Link href={"/servicePage"}>
                     <Button sx={{
                         backgroundColor: '#007AFF',
                         color: "#FFFFFF",
