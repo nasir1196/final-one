@@ -1,12 +1,13 @@
 "use client"
 import React from 'react'
+import Homes from "@/components/craftPainter/Homes/Homes";
 
 const CraftPainter = () => {
-  return (
-    <>
-
-    </>
-  )
+    return (
+        <>
+            <Homes/>
+        </>
+    )
 }
 
 export default CraftPainter

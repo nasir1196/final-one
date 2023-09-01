@@ -17,10 +17,7 @@ import Container from "@mui/material/Container";
 export default function SignupPage() {
     const router = useRouter()
 
-    const [user, setUser] = useState({
-        email: "",
-        password: "",
-    })
+
 
     const [logAlert, setLogAlert]= useState("")
     const handleSubmit = async (event:any) => {
@@ -33,27 +30,22 @@ export default function SignupPage() {
                 password: data.get("password"),
             }
             if(logData.email !== "" && logData.password !== ""){
-
-                setLogAlert(" ")
-                console.log(logData)
-                // @ts-ignore
-                setUser(logData)
+                setLogAlert("login done ")
             }else{
 
                 setLogAlert("Email & Password Required")
             }
 
              await axios.post("/api/users/login",
-                user
+                 logData
             )
             toast.success("Login success")
             router.push("/profile")
 
         } catch (error: any) {
-            console.log("Login failed", error.message)
             toast.error(error.message)
         } finally {
-            console.log("done")
+            toast.success("Login success")
         }
     };
 
@@ -95,10 +87,6 @@ export default function SignupPage() {
                         id="password"
                         autoComplete="current-password"
                     />
-                    <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
-                    />
                     <Button
                         type="submit"
                         fullWidth
@@ -107,7 +95,6 @@ export default function SignupPage() {
                     >
                         Sign In
                     </Button>
-                    <Button variant="contained">Sign In</Button>
                     <Grid container>
                         <Grid item xs>
                             <Link href={"/forgotPassword"} >
