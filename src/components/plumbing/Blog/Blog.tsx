@@ -14,8 +14,8 @@ const Blog = () =>
             <Grid container spacing={ 2 }>
                 {
                     blogsContent.map( ( blog, index ) => (
-                        <Grid item xs={ 12 } md={ 6 }>
-                            <Box key={ index }>
+                        <Grid item xs={ 12 } md={ 6 } key={ index }>
+                            <Box >
                                 <Card sx={ { maxWidth: 345 } }>
                                     <CardActionArea>
                                         <CardMedia

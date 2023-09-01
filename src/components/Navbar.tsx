@@ -65,7 +65,7 @@ const Navbar = () => {
                             </div>
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex-shrink-0 flex items-center">
-                                    <Link href="/">
+                                    <Link href={"/"}>
                                         <Image
                                             className="block lg:hidden h-8 w-auto"
                                             src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
@@ -112,13 +112,13 @@ const Navbar = () => {
                                 <div className="mx-1">
                                     <button
                                         className="bg-green-500 hover:bg-green-400 text-white font-bold py-1 px-2 border-b-4 border-green-700 hover:border-green-500 rounded">
-                                        <Link href="/signup">Signup</Link>
+                                        <Link href={"/signup"}>Signup</Link>
                                     </button>
                                 </div>
                                 <div className="mx-1">
                                     <button
                                         className="bg-red-500 hover:bg-red-400 text-white font-bold py-1 px-2 border-b-4 border-red-700 hover:border-red-500 rounded">
-                                        <Link href="/login">Login</Link>
+                                        <Link href={"/login"}>Login</Link>
                                     </button>
                                 </div>
 
@@ -128,14 +128,16 @@ const Navbar = () => {
                                         <Menu.Button
                                             className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                             <span className="sr-only">Open user menu</span>
-                                            {user.name ? "Hello" : user.name === null ? <img
+                                            {user.name ? "Hello" : user.name === null ? <Image
                                                 className="h-8 w-8 rounded-full"
                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt=""
-                                            /> : <img
+                                                alt="profile"
+                                                width={500}
+                                            /> : <Image
                                                 className="h-8 w-8 rounded-full"
                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt=""
+                                                alt="profile"
+                                                width={500}
                                             />}
                                         </Menu.Button>
                                     </div>
@@ -153,7 +155,7 @@ const Navbar = () => {
                                             <Menu.Item>
                                                 {({active}) => (
                                                     <Link
-                                                        href="/profile"
+                                                        href={"/profile"}
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Your Profile
@@ -163,7 +165,7 @@ const Navbar = () => {
                                             <Menu.Item>
                                                 {({active}) => (
                                                     <Link
-                                                        href="/setting"
+                                                        href={"/setting"}
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Settings
@@ -173,7 +175,7 @@ const Navbar = () => {
                                             <Menu.Item>
                                                 {({active}) => (
                                                     <Link
-                                                        href="/singOut"
+                                                        href={"/singOut"}
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Sign out
