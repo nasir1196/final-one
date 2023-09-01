@@ -1,4 +1,3 @@
-import multiVendor1 from "../../public/source/oneCall/electric/cable-joining.png"
 import multiVendor2 from "../../public/source/oneCall/electric/cable-waring.png"
 import multiVendor3 from "../../public/source/oneCall/electric/cables-show.png"
 import multiVendor4 from "../../public/source/oneCall/electric/cerkitbekar.png"
@@ -10,9 +9,6 @@ import multiVendor9 from "../../public/source/oneCall/electric/tools.png"
 import multiVendor10 from "../../public/source/oneCall/electric/voltage.png"
 
 export const bannerPics = [
-    {
-        pic: multiVendor1
-    },
     {
         pic: multiVendor2
     },
