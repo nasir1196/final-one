@@ -9,7 +9,7 @@ import {sendEmail} from "@/helpers/mailer";
 export async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json();
-        const {username, email, password} = reqBody;
+        const {firstName, lastName, email,phone, street, city, password} = reqBody;
 
         //if check user already exist
         const user = await User.findOne({email})
@@ -24,8 +24,12 @@ export async function POST(request: NextRequest) {
 
         //new user created
         const newUser = new User({
-            username,
+            firstName,
+            lastName,
             email,
+            phone,
+            street,
+            city,
             password: hashedPassword
         })
 

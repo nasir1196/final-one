@@ -1,10 +1,9 @@
 "use client";
-import React, {useEffect} from "react"
+import React from "react"
 import {useRouter} from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
-import Image from "next/image";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -32,32 +31,30 @@ export default function SignupPage() {
         city: "",
     })
 
-    const [loading, setLoading] = React.useState(false)
 
-
-    const handleSubmit = async(event:any) => {
+    const handleSubmit = async (event: any) => {
         try {
             event.preventDefault();
             const data = new FormData(event.currentTarget);
-            const makeData ={
-                firstName:data.get("firstName"),
-                lastName:data.get("lastName"),
+            const makeData = {
+                firstName: data.get("firstName"),
+                lastName: data.get("lastName"),
                 email: data.get("email"),
-                phone:data.get("phone"),
-                street:data.get("street"),
-                city:data.get("city"),
+                phone: data.get("phone"),
+                street: data.get("street"),
+                city: data.get("city"),
                 password: data.get("password"),
             }
 
-            if(makeData.firstName !== "", makeData.lastName !== "",makeData.email !== "", makeData.phone !== "", makeData.street !== "", makeData.city !== "", makeData.password !== ""){
+            if (makeData.firstName !== "" && makeData.lastName !== "" && makeData.email !== "" && makeData.phone !== "" && makeData.street !== "" && makeData.city !== "" && makeData.password !== "") {
                 console.log(makeData);
                 // @ts-ignore
                 setUser(makeData)
-            }else{
+            } else {
                 alert("All Field is Required")
             }
-            setLoading(true)
-            const respond = await axios.post("/api/users/signup",
+
+            await axios.post("/api/users/signup",
                 user
             )
             router.push("/login")
@@ -66,28 +63,27 @@ export default function SignupPage() {
             console.log("Signup failed", error.message)
             toast.error(error.message)
         } finally {
-            setLoading(false)
+            console.log("done")
         }
 
     };
 
 
-
     return (
-        <Container component="main" maxWidth="xs" >
-            <CssBaseline />
+        <Container component="main" maxWidth="xs">
+            <CssBaseline/>
             <Box
                 sx={{
                     marginTop: "7rem",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    marginBottom:"2rem",
+                    marginBottom: "2rem",
 
                 }}
             >
-                <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                    <LockOutlinedIcon />
+                <Avatar sx={{m: 1,}}>
+                    <LockOutlinedIcon/>
                 </Avatar>
                 <Link href={`/`}>
                     <Typography component="h1" variant="h5">
@@ -101,7 +97,7 @@ export default function SignupPage() {
                     component="form"
                     noValidate
                     onSubmit={handleSubmit}
-                    sx={{ mt: 3 }}
+                    sx={{mt: 3}}
                 >
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
@@ -179,7 +175,7 @@ export default function SignupPage() {
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
-                                    <Checkbox value="allowExtraEmails" color="primary" />
+                                    <Checkbox value="allowExtraEmails" color="primary"/>
                                 }
                                 label="I want to receive inspiration, marketing promotions and updates via email."
                             />
@@ -189,13 +185,13 @@ export default function SignupPage() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        sx={{ mt: 3, mb: 2, color:"black", fontWeight:"bold" }}
+                        sx={{mt: 3, mb: 2, color: "black", fontWeight: "bold"}}
                     >
                         Sign Up
                     </Button>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Link href="/login" >
+                            <Link href={"/login"}>
                                 Already have an account? Sign in
                             </Link>
                         </Grid>

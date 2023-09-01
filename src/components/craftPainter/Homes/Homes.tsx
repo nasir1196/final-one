@@ -1,6 +1,6 @@
 import React from "react"
 import Box from "@mui/material/Box";
-import Banner from "../Banner/Banner";
+import Banner from "@/components/Banner";
 import Services from "../Services/Services";
 
 const Homes =()=>{

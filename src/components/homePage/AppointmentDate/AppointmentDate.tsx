@@ -58,7 +58,7 @@ const AppointmentDate = () => {
                 Services.</Typography>
         </Box>
         <Grid container spacing={4}>
-            <Grid item xs="12" md="6">
+            <Grid item xs={12} md={6}>
                 <Box sx={{m: "1rem"}}>
                     <Box
                         component="form"
@@ -136,7 +136,7 @@ const AppointmentDate = () => {
                                     label="Message"
                                     type="textarea"
                                     id="message"
-                                    autoComplete="textarea" z
+                                    autoComplete="textarea"
                                 />
                             </Grid>
 
@@ -157,7 +157,7 @@ const AppointmentDate = () => {
                     </Box>
                 </Box>
             </Grid>
-            <Grid item xs="12" md="6">
+            <Grid item xs={12} md={6}>
                 <Carousel>
                     {appointmentPic.map((pic, index) => (<Box key={index}>
                         <Image src={pic.pic} alt="One call" style={{width: "450px", height: '500px'}}/>

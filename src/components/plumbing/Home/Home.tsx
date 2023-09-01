@@ -1,6 +1,6 @@
 "use Client";
 import React from 'react';
-import Banner from '../Banner/Banner';
+import Banner from "@/components/Banner"
 import Services from '../Services/Services';
 import About from '../About/About';
 import Support from '../Support/Support';

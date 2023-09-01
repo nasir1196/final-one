@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import {useRouter} from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -17,12 +17,11 @@ import Container from "@mui/material/Container";
 export default function SignupPage() {
     const router = useRouter()
 
-    const [user, setUser] = React.useState({
+    const [user, setUser] = useState({
         email: "",
         password: "",
     })
-    const [buttonDisabled, setButtonDisabled] = React.useState(false)
-    const [loading, setLoading] = React.useState(false)
+
     const [logAlert, setLogAlert]= useState("")
     const handleSubmit = async (event:any) => {
 
@@ -44,10 +43,7 @@ export default function SignupPage() {
                 setLogAlert("Email & Password Required")
             }
 
-            // @ts-ignore
-
-            setLoading(true)
-            const respond = await axios.post("/api/users/login",
+             await axios.post("/api/users/login",
                 user
             )
             toast.success("Login success")
@@ -57,18 +53,11 @@ export default function SignupPage() {
             console.log("Login failed", error.message)
             toast.error(error.message)
         } finally {
-            setLoading(false)
+            console.log("done")
         }
-
     };
 
-    useEffect(() => {
-        if (user.email.length > 0 && user.password.length > 0) {
-            setButtonDisabled(false)
-        } else {
-            setButtonDisabled(true)
-        }
-    }, [user]);
+
     return (
         <Container component="main" maxWidth="xs">
             <Box
@@ -121,12 +110,12 @@ export default function SignupPage() {
                     <Button variant="contained">Sign In</Button>
                     <Grid container>
                         <Grid item xs>
-                            <Link href="/forgotPassword" >
+                            <Link href={"/forgotPassword"} >
                                 Forgot password?
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="/signup" >
+                            <Link href={"/signup"} >
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>
