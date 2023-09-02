@@ -48,7 +48,7 @@ const Testimonials = () => {
                 <div className="p-4 text-gray-800 rounded-lg shadow-md">
                     <div className="mb-2">
                         <p className="mb-2 text-center text-gray-600 ">
-                            Full Stack Web Developer
+                            Full Stack Web Developer & Teacher
                         </p>
                         <div className="flex flex-col items-center justify-center">
                             <div
