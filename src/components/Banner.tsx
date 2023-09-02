@@ -41,27 +41,28 @@ const Banner = () => {
         },
     ];
 
-
-
-    // @ts-ignore
-    return(
-        <Box>
+    return (
+        <Box sx={{}}>
             <Box sx={{backgroundColor: primaryBlue}}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
-                        <Box sx={{m: {md: "1rem auto", xs: "1rem auto"}, width: {md: "50%", xs: "100%"}}}>
+                        <Box sx={{
+                            m: {md: "1rem auto", xs: "1rem auto"},
+                            width: {md: "50%", xs: "100%"},
+                            color: "#FFFFFF"
+                        }}>
                             <Box>
-                                        <span>
-                                            {
-                                                pathname === "/" ? "Welcome To One Call Kuwait" :
-                                                    pathname === "/plumbing" ? "Welcome To Our Plumber Area" :
-                                                        pathname === "/satellite" ? "Welcome To Satellite Service" :
-                                                            pathname === "/electric" ? "Welcome To Electric Service" :
-                                                                pathname === "/craftPainter" ? "Welcome To Our Craft Painter Service" : " "
-                                            }
-                                        </span>
-                                <Box className="visible">
-                                    <Typography variant="h4" className="customize ">
+                                <Typography  sx={{fontWeight: "bold", fontSize: {md: "1.7rem", xs: "1rem"}}}>
+                                    {
+                                        pathname === "/" ? "Welcome To One Call Kuwait" :
+                                            pathname === "/plumbing" ? "Welcome To Our Plumber Area" :
+                                                pathname === "/satellite" ? "Welcome To Satellite Service" :
+                                                    pathname === "/electric" ? "Welcome To Electric Service" :
+                                                        pathname === "/craftPainter" ? "Welcome To Our Craft Painter Service" : " "
+                                    }
+                                </Typography>
+                                <Box className="visible" sx={{height: "15vh"}}>
+                                    <Typography variant={"h4"} className={"customize"} sx={{fontSize: "1.5rem"}}>
                                         <Typewriter
                                             options={{
                                                 strings: [
@@ -78,9 +79,9 @@ const Banner = () => {
                                     </Typography>
                                 </Box>
                                 <Box className="notVisible">
-                                    <Typography className="customize ">
+                                    <Typography className={"customize"}>
                                         One Call Kuwait
-                                        <span className="need-more-position">
+                                        <Typography  className={"need-more-position"}>
 
                                     <Typewriter
                                         options={{
@@ -94,11 +95,11 @@ const Banner = () => {
                                             loop: true,
                                         }}
                                     />
-                                    </span>
+                                    </Typography>
                                     </Typography>
                                 </Box>
 
-                                <Link href="/appointment">
+                                <Link href={"/appointment"}>
                                     <Button sx={{
                                         "&:hover": {color: "#FF0000", backgroundColor: "#F1BAA1"},
                                         color: "#f2830c",
@@ -110,7 +111,7 @@ const Banner = () => {
                                 </Link>
                             </Box>
                             <Box className="need-padding ">
-                                <Typography  style={{lineHeight: "34px"}}>
+                                <Typography style={{lineHeight: "34px"}}>
                                     One Call Kuwait is home touch maintenance services section area zone , Always I Do
                                     Hard Work
                                     To
@@ -119,21 +120,21 @@ const Banner = () => {
                                 </Typography>
                                 <Grid item xs={12} md={12}>
                                     <Box>
-                                        <Link href="https://www.facebook.com/profile.php?id=100015670060080">
+                                        <Link href={"https://www.facebook.com/profile.php?id=100015670060080"}>
                                             <FacebookIcon sx={{
                                                 fontSize: {md: "2.4rem", xs: "2rem"},
                                                 fontWeight: 'bolder',
                                                 m: "0.3rem",
                                             }}/>
                                         </Link>
-                                        <Link href="https://www.twitter.com/onecallkuwait">
+                                        <Link href={"https://www.twitter.com/onecallkuwait"}>
                                             <TwitterIcon sx={{
                                                 fontSize: {md: "2.4rem", xs: "2rem"},
                                                 fontWeight: 'bolder',
                                                 m: "0.3rem",
                                             }}/>
                                         </Link>
-                                        <Link href="https://www.linkedin.com/in/onecallkuwait">
+                                        <Link href={"https://www.linkedin.com/in/onecallkuwait"}>
                                             <LinkedInIcon sx={{
                                                 fontSize: {md: "2.4rem", xs: "2rem"},
                                                 fontWeight: 'bolder',
@@ -145,7 +146,7 @@ const Banner = () => {
                                             fontWeight: 'bolder',
                                             m: "0.3rem",
                                         }}/></a>
-                                        <Link href="https://www.instagram.com/2_onecallkuwait_">
+                                        <Link href={"https://www.instagram.com/2_onecallkuwait_"}>
                                             <InstagramIcon sx={{
                                                 fontSize: {md: "2.4rem", xs: "2rem"},
                                                 fontWeight: 'bolder',
@@ -163,7 +164,7 @@ const Banner = () => {
                                 {
                                     bannerPics.map((pic, index) => (
                                         <Box key={index}>
-                                            <Image src={pic.pic} alt="One call"
+                                            <Image src={pic.pic} alt="One call" width={450} height={500}
                                                    style={{width: "450px", height: '500px'}}/>
                                         </Box>
                                     ))

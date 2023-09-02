@@ -18,16 +18,16 @@ export default function VerifyEmailPage() {
         }
     }
 
-    useEffect(() => {
-        const urlToken = window.location.search.split("=")[1]
-        setToken(urlToken || "")
-    }, [token]);
-
-    useEffect(() => {
-        if (token.length > 0) {
-            verifyUserEmail().then(r => console.log(r))
-        }
-    }, [token]);
+    // useEffect(() => {
+    //     const urlToken = window.location.search.split("=")[1]
+    //     setToken(urlToken || "")
+    // }, [token]);
+    //
+    // useEffect(() => {
+    //     if (token.length > 0) {
+    //         verifyUserEmail().then(r => console.log(r))
+    //     }
+    // }, [token]);
     return (
         <div className="flex flex-col items-center justify-center min-h-screen -py-2">
 

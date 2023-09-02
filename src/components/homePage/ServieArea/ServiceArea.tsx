@@ -87,8 +87,22 @@ const ServiceArea = () =>
                     <Typography variant="h3" sx={ { fontWeight: { xs: "bold", md: "bolder" } } }>Get a fast response, call us now</Typography>
 
                     <Box>
-                        <Button variant="contained" sx={ { py: "1rem", px: { xs: "1.5rem", md: "3rem" }, m: "0.8rem", backgroundColor: "#041B34", color: "#FFFFFF", "&:hover": { backgroundColor: "#F7BF23", color: '#041B34' } } }>{ <MoreTimeIcon /> } <a href={`tel:+96566515342`}>REQUEST A CALL</a> </Button>
-                        <Button variant="contained" sx={ { py: "1rem", px: { xs: "1.5rem", md: "3rem" }, m: "0.8rem", backgroundColor: "#F7BF23", color: "#041B34", "&:hover": { backgroundColor: "#041B34", color: '#FFFFFF' } } }>{ <TtyIcon /> } <a href={`tel:+96566515342`}>66515342</a></Button>
+                        <Button variant="contained" sx={ {
+                            py: "1rem",
+                            px: { xs: "1.5rem", md: "3rem" },
+                            m: "0.8rem",
+                            backgroundColor: "#01030EFF",
+                            color: "#FFFFFF",
+                            "&:hover": { backgroundColor: "#F7BF23", color: '#01030EFF' }
+                        } }>{ <MoreTimeIcon /> } <a href={`tel:+96566515342`}>REQUEST A CALL</a> </Button>
+                        <Button variant="contained" sx={ {
+                            py: "1rem",
+                            px: { xs: "1.5rem", md: "3rem" },
+                            m: "0.8rem",
+                            backgroundColor: "#F7BF23",
+                            color: "#01030EFF",
+                            "&:hover": { backgroundColor: "#01030EFF", color: '#FFFFFF'
+                            } } }>{ <TtyIcon /> } <a href={`tel:+96566515342`}>66515342</a></Button>
                     </Box>
                 </Box>
             </Box>

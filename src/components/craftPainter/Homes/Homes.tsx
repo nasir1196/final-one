@@ -2,7 +2,7 @@
 import React from "react"
 import Box from "@mui/material/Box";
 import Banner from "@/components/Banner";
-import Services from "../Services/Services";
+import Services from "@/components/craftPainter/Services/Services";
 
 const Homes =()=>{
     return(

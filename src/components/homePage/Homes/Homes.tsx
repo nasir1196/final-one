@@ -1,10 +1,11 @@
 "use client"
 import React from 'react'
-import Contact from "@/components/homePage/Contact/Contact";
-import Services from "@/components/homePage/Services/Services";
+
+import Banner from "@/components/Banner";
+import ContactForm from "@/components/homePage/ContactForm/Contact";
 import Review from "@/components/homePage/Review/Review";
 import ServiceArea from "@/components/homePage/ServieArea/ServiceArea";
-import Banner from "@/components/Banner";
+import Services from "@/components/homePage/Services/Services";
 
 
 
@@ -15,7 +16,7 @@ const Homes = () => {
             <Services />
             <ServiceArea />
             <Review />
-            <Contact/>
+            <ContactForm/>
         </>
     )
 }
