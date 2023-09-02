@@ -45,12 +45,6 @@ const Contact = () => {
         });
     }, [form]);
 
-
-
-    // cols="30"
-    // rows="2"
-    // textarea={"true"}
-
     return (
         <div className="contact text-white">
             <div className="my-services ">
