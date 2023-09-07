@@ -35,7 +35,6 @@ export default function SignupPage() {
     const handleSubmit = async (event: any) => {
         try {
             event.preventDefault();
-            console.log(user)
             if (user.firstName !== "" && user.lastName !== "" && user.email !== "" && user.phone !== "" && user.street !== "" && user.city !== "" && user.password !== "") {
                 await axios.post("/api/users/signup",
                     user
