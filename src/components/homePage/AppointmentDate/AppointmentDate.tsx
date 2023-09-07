@@ -53,6 +53,7 @@ const AppointmentDate = () => {
                 await axios.post("/api/users/appointments",
                     appointment
                 )
+                alert("Appointment Successfully done")
             } else {
                 alert("All Field is Required")
             }
