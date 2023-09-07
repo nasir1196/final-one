@@ -22,9 +22,9 @@ export default function LoginPage() {
 
         try {
             event.preventDefault();
-            console.log(user)
-
             if (user.email !== "" && user.password !== "") {
+
+                console.log(user)
                 await axios.post("/api/users/login",
                     user
                 )
