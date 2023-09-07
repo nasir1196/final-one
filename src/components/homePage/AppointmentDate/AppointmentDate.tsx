@@ -1,18 +1,19 @@
 "use client";
 import React, {useState} from 'react';
-import {DatePicker, Select, Space, TimePicker} from 'antd';
-import {Box, Button, TextField, Grid} from '@mui/material';
-import {useFormik} from 'formik';
+import {DatePicker, Select, TimePicker} from 'antd';
+import {Box, Button, Grid, TextField} from '@mui/material';
 import * as yup from 'yup';
 import Image from "next/image"
 import {appointmentPic} from './data';
 import Typography from "@mui/material/Typography";
 import {primaryBlue, primaryOrange} from "../../color";
 import Carousel from "react-material-ui-carousel";
-
+import TextArea from "antd/es/input/TextArea";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const {Option} = Select;
-const PickerWithType = ({type, onChange}:any) => {
+const PickerWithType = ({type, onChange}: any) => {
     if (type === 'time') return <TimePicker onChange={onChange}/>;
     if (type === 'date') return <DatePicker onChange={onChange}/>;
     return <DatePicker picker={type} onChange={onChange}/>;
@@ -27,26 +28,41 @@ const personSchema = yup.object({
     province: yup.string().required("Province is required"),
 });
 
- type Person = yup.InferType<typeof personSchema>
+type Person = yup.InferType<typeof personSchema>
 
 
 const AppointmentDate = () => {
     const [type, setType] = useState('date');
-    const [appointment, setAppointment] = useState('');
+    const [appointment, setAppointment] = useState({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        street: "",
+        city: "",
+        houseNumber: "",
+        describeIssue: ""
+    });
 
 
-    const handleSubmit = (e:any) => {
-        e.preventDefault();
-        const data = new FormData(e.currentTarget)
-        const cData = {
-            firstName: data.get("firstName"),
-            lastName: data.get("lastName"),
-            phone: data.get("phone"),
-            email: data.get("email"),
-            message: data.get("message"),
+    const handleSubmit = async(e: any) => {
+
+        try {
+            e.preventDefault();
+            if (appointment.firstName !== "" && appointment.lastName !== "" && appointment.email !== "" && appointment.phone !== "" && appointment.street !== "" && appointment.city !== "" && appointment.houseNumber !== " " && appointment.describeIssue !== "") {
+                await axios.post("/api/users/appointments",
+                    appointment
+                )
+            } else {
+                alert("All Field is Required")
+            }
+
+        } catch (error: any) {
+            console.log("Appointment failed", error.message)
+            toast.error(error.message)
+        } finally {
+            console.log("Appointment done")
         }
-
-        console.log(cData)
     };
 
     // @ts-ignore
@@ -76,6 +92,10 @@ const AppointmentDate = () => {
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
+                                    value={appointment.firstName}
+                                    onChange={(e) => {
+                                        setAppointment({...appointment, firstName: e.target.value})
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -86,6 +106,10 @@ const AppointmentDate = () => {
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="family-name"
+                                    value={appointment.lastName}
+                                    onChange={(e) => {
+                                        setAppointment({...appointment, lastName: e.target.value})
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -96,6 +120,10 @@ const AppointmentDate = () => {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    value={appointment.email}
+                                    onChange={(e) => {
+                                        setAppointment({...appointment, email: e.target.value})
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -106,6 +134,24 @@ const AppointmentDate = () => {
                                     label="Phone Number"
                                     name="phone"
                                     autoComplete="phone"
+                                    value={appointment.phone}
+                                    onChange={(e) => {
+                                        setAppointment({...appointment, phone: e.target.value})
+                                    }}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="houseNumber"
+                                    label="House Number"
+                                    name="houseNumber"
+                                    autoComplete="houseNumber"
+                                    value={appointment.houseNumber}
+                                    onChange={(e) => {
+                                        setAppointment({...appointment, houseNumber: e.target.value})
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -116,6 +162,10 @@ const AppointmentDate = () => {
                                     label="Street"
                                     name="street"
                                     autoComplete="street"
+                                    value={appointment.street}
+                                    onChange={(e) => {
+                                        setAppointment({...appointment, street: e.target.value})
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -126,17 +176,20 @@ const AppointmentDate = () => {
                                     label="City"
                                     name="city"
                                     autoComplete="city"
+                                    value={appointment.city}
+                                    onChange={(e) => {
+                                        setAppointment({...appointment, city: e.target.value})
+                                    }}
                                 />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField
+                                <TextArea
                                     required
-                                    fullWidth
-                                    name="message"
-                                    label="Message"
-                                    type="textarea"
-                                    id="message"
-                                    autoComplete="textarea"
+                                    placeholder={"Describe Your Issues"}
+                                    value={appointment.describeIssue}
+                                    onChange={(e) => {
+                                        setAppointment({...appointment, describeIssue: e.target.value})
+                                    }}
                                 />
                             </Grid>
 

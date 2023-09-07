@@ -1,13 +1,13 @@
 "use client"
 import React from 'react'
 import {Box} from '@mui/material'
-import Contact from "@/components/Contact";
+import AppointmentDate from "@/components/homePage/AppointmentDate/AppointmentDate";
 
 
 const Appointment = () => {
     return (
         <Box>
-            <Contact/>
+            <AppointmentDate/>
         </Box>
     )
 }

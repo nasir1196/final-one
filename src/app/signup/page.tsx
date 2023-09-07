@@ -40,22 +40,16 @@ export default function SignupPage() {
                 await axios.post("/api/users/signup",
                     user
                 )
+                router.push("/login")
             } else {
                 alert("All Field is Required")
             }
-
-            await axios.post("/api/users/signup",
-                user
-            )
-            router.push("/login")
-
         } catch (error: any) {
             console.log("Signup failed", error.message)
             toast.error(error.message)
         } finally {
             console.log("done")
         }
-
     };
 
 
