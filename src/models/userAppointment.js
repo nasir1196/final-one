@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
-const Schema=mongoose.Schema;
+
+const Schema = mongoose.Schema;
 mongoose.Promise = global.Promise
 
 const userAppointment = new Schema({
@@ -29,6 +30,6 @@ const userAppointment = new Schema({
     },
 })
 
-const AppointmentDb = mongoose.model("userAppointment",userAppointment )
+const AppointmentDb = mongoose.model.Appointment || mongoose.model("Appointment", userAppointment)
 
 export default AppointmentDb;
