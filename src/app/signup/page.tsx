@@ -35,21 +35,11 @@ export default function SignupPage() {
     const handleSubmit = async (event: any) => {
         try {
             event.preventDefault();
-            const data = new FormData(event.currentTarget);
-            const makeData = {
-                firstName: data.get("firstName"),
-                lastName: data.get("lastName"),
-                email: data.get("email"),
-                phone: data.get("phone"),
-                street: data.get("street"),
-                city: data.get("city"),
-                password: data.get("password"),
-            }
-
-            if (makeData.firstName !== "" && makeData.lastName !== "" && makeData.email !== "" && makeData.phone !== "" && makeData.street !== "" && makeData.city !== "" && makeData.password !== "") {
-                console.log(makeData);
-                // @ts-ignore
-                setUser(makeData)
+            console.log(user)
+            if (user.firstName !== "" && user.lastName !== "" && user.email !== "" && user.phone !== "" && user.street !== "" && user.city !== "" && user.password !== "") {
+                await axios.post("/api/users/signup",
+                    user
+                )
             } else {
                 alert("All Field is Required")
             }
@@ -70,7 +60,7 @@ export default function SignupPage() {
 
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component={"main"} maxWidth={"xs"}>
             <CssBaseline/>
             <Box
                 sx={{
@@ -85,12 +75,12 @@ export default function SignupPage() {
                 <Avatar sx={{m: 1,}}>
                     <LockOutlinedIcon/>
                 </Avatar>
-                <Link href={`/`}>
-                    <Typography component="h1" variant="h5">
+                <Link href={"/"}>
+                    <Typography component={"h1"} variant={"h5"}>
                         ONE CALL KUWAIT
                     </Typography>
                 </Link>
-                <Typography component="h1" variant="h5">
+                <Typography component={"h1"} variant={"h5"}>
                     Sign up
                 </Typography>
                 <Box
@@ -109,6 +99,10 @@ export default function SignupPage() {
                                 id="firstName"
                                 label="First Name"
                                 autoFocus
+                                value={user.firstName}
+                                onChange={(e) => {
+                                    setUser({...user, firstName: e.target.value})
+                                }}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -119,6 +113,10 @@ export default function SignupPage() {
                                 label="Last Name"
                                 name="lastName"
                                 autoComplete="family-name"
+                                value={user.lastName}
+                                onChange={(e) => {
+                                    setUser({...user, lastName: e.target.value})
+                                }}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -129,6 +127,10 @@ export default function SignupPage() {
                                 label="Email Address"
                                 name="email"
                                 autoComplete="email"
+                                value={user.email}
+                                onChange={(e) => {
+                                    setUser({...user, email: e.target.value})
+                                }}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -139,6 +141,10 @@ export default function SignupPage() {
                                 label="Phone Number"
                                 name="phone"
                                 autoComplete="phone"
+                                value={user.phone}
+                                onChange={(e) => {
+                                    setUser({...user, phone: e.target.value})
+                                }}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -149,6 +155,10 @@ export default function SignupPage() {
                                 label="Street"
                                 name="street"
                                 autoComplete="street"
+                                value={user.street}
+                                onChange={(e) => {
+                                    setUser({...user, street: e.target.value})
+                                }}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -159,6 +169,10 @@ export default function SignupPage() {
                                 label="City"
                                 name="city"
                                 autoComplete="city"
+                                value={user.city}
+                                onChange={(e) => {
+                                    setUser({...user, city: e.target.value})
+                                }}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -170,6 +184,10 @@ export default function SignupPage() {
                                 type="password"
                                 id="password"
                                 autoComplete="new-password"
+                                value={user.password}
+                                onChange={(e) => {
+                                    setUser({...user, password: e.target.value})
+                                }}
                             />
                         </Grid>
                         <Grid item xs={12}>
