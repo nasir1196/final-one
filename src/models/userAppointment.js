@@ -29,6 +29,6 @@ const userAppointment = new Schema({
     },
 })
 
-const AppointmentDb = mongoose.model("appointments",userAppointment )
+const AppointmentDb = mongoose.model("userAppointment",userAppointment )
 
 export default AppointmentDb;
