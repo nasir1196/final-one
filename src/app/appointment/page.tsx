@@ -55,8 +55,7 @@ const Appointment = () => {
                 ).then((res) => {
                     if (res.data) {
                         alert("Appointment Successfully done")
-                        // @ts-ignore
-                        setAppointment("")
+
                     }
                 }).catch((error) => {
                     if (error) {
@@ -73,7 +72,8 @@ const Appointment = () => {
             console.log("Appointment failed", error.message)
             toast.error(error.message)
         } finally {
-            console.log("Appointment done")
+            // @ts-ignore
+            setAppointment("")
         }
     };
 
