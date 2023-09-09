@@ -52,12 +52,13 @@ const Appointment = () => {
             if (appointment.firstName !== "" && appointment.lastName !== "" && appointment.email !== "" && appointment.phone !== "" && appointment.street !== "" && appointment.city !== "" && appointment.houseNumber !== " " && appointment.describeIssue !== "") {
                 await axios.post("/api/users/appointments",
                     appointment
-                ).then((data)=>{
-                    if(data){
+                ).then((res)=>{
+                    if(res.data){
                         alert("Appointment Successfully done")
+                        console.log(res.data)
                     }
-                })
-                console.log(appointment)
+                }).catch((error)=>{ if(error){ alert("Somthing went wrong")}})
+                
 
             } else {
                 alert("All Field is Required")
