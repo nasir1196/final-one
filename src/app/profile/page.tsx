@@ -3,6 +3,7 @@ import axios from "axios"
 import toast from "react-hot-toast";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
+import UserProfilePage from "./[id]/page";
 
 
 export default function ProfilePage() {
@@ -28,7 +29,7 @@ export default function ProfilePage() {
 
     return (
         <div>
-
+            <UserProfilePage/>
         </div>
     )
 }
