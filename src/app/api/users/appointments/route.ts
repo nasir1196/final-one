@@ -11,9 +11,10 @@ export async function POST(request: NextRequest) {
         const { firstName, lastName, email, phone, houseNumber, street, city, describeIssue } = requestBody;
         await connect();
         const user = await User.findOne({ email })
-        await Appointment.create({ firstName, lastName, email, phone, houseNumber, street, city, describeIssue, userId: user._id })
+        const newAppointment=new Appointment({ firstName, lastName, email, phone, houseNumber, street, city, describeIssue, userId: user._id })
 
-        return NextResponse.json({ message: "Appointment created successfully", success: true, status: 201 })
+        const savedAppointment = await newAppointment.save()
+        return NextResponse.json({ message: "Appointment created successfully", success: true, status: 201, savedAppointment })
 
     } catch (error: any) {
         return NextResponse.json({ error: error.message, status: 400 })
