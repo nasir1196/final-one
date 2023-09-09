@@ -10,7 +10,7 @@ import TextArea from "antd/es/input/TextArea";
 import axios from "axios";
 import toast from "react-hot-toast";
 import {appointmentPic} from "@/components/homePage/AppointmentDate/data";
-import {primaryOrange,primaryBlue} from "@/components/color";
+import {primaryBlue, primaryOrange} from "@/components/color";
 
 const {Option} = Select;
 const PickerWithType = ({type, onChange}: any) => {
@@ -45,20 +45,25 @@ const Appointment = () => {
     });
 
 
-    const handleSubmit = async(e: any) => {
+    const handleSubmit = async (e: any) => {
 
         try {
             e.preventDefault();
             if (appointment.firstName !== "" && appointment.lastName !== "" && appointment.email !== "" && appointment.phone !== "" && appointment.street !== "" && appointment.city !== "" && appointment.houseNumber !== " " && appointment.describeIssue !== "") {
                 await axios.post("/api/users/appointments",
                     appointment
-                ).then((res)=>{
-                    if(res.data){
+                ).then((res) => {
+                    if (res.data) {
                         alert("Appointment Successfully done")
-                        console.log(res.data)
+                        // @ts-ignore
+                        setAppointment("")
                     }
-                }).catch((error)=>{ if(error){ alert("Somthing went wrong")}})
-                
+                }).catch((error) => {
+                    if (error) {
+                        alert("Somthing went wrong")
+                    }
+                })
+
 
             } else {
                 alert("All Field is Required")
