@@ -55,25 +55,20 @@ const Appointment = () => {
                 ).then((res) => {
                     if (res.data) {
                         alert("Appointment Successfully done")
-
+                        // @ts-ignore
+                        setAppointment("")
                     }
                 }).catch((error) => {
                     if (error) {
                         alert("Somthing went wrong")
                     }
                 })
-
-
             } else {
                 alert("All Field is Required")
             }
 
         } catch (error: any) {
             console.log("Appointment failed", error.message)
-            toast.error(error.message)
-        } finally {
-            // @ts-ignore
-            setAppointment("")
         }
     };
 
