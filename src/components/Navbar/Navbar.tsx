@@ -5,6 +5,7 @@ import {usePathname, useRouter} from "next/navigation";
 import Link from "next/link";
 import {HiMenuAlt2, HiOutlineX} from "react-icons/hi";
 import AuthService from "@/components/AuthService/AuthService";
+import axios from "axios";
 
 
 const Navbar = () => {

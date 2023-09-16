@@ -14,8 +14,6 @@ import Container from "@mui/material/Container";
 
 export default function LoginPage() {
     const router = useRouter()
-
-
     const [user, setUser] = useState({email: "", password: ""})
     const [logAlert, setLogAlert] = useState("")
     const handleSubmit = async (event: any) => {
@@ -23,8 +21,6 @@ export default function LoginPage() {
         try {
             event.preventDefault();
             if (user.email !== "" && user.password !== "") {
-
-                console.log(user)
                 await axios.post("/api/users/login",
                     user
                 ).then((res)=>{
@@ -34,8 +30,6 @@ export default function LoginPage() {
                         alert("Try again with right credentials")
                     }
                 }).catch((err)=>console.log(err.message))
-
-                toast.success("Login success")
                 router.push("/profile")
             } else {
 
@@ -44,9 +38,9 @@ export default function LoginPage() {
                 }, 1500)
             }
         } catch (error: any) {
-            toast.error(error.message)
+            console.log(error.message)
         } finally {
-            toast.success("Login success")
+            console.log("Login success")
         }
     };
 

@@ -1,16 +1,14 @@
-import {connect} from '@/dbConfig/dbConfig';
-import {NextResponse} from "next/server";
+import { NextResponse} from "next/server";
 import User from "@/models/user";
+import {connect} from "@/dbConfig/dbConfig";
 
-connect().then(r => console.log(r))
 
 export async function GET() {
     try {
+        await connect()
         const user = await User.find()
-
-        return NextResponse.json({message: "User created successfully", success: true, user})
-
+        return NextResponse.json({message: "User found", data: user})
     } catch (error: any) {
-        return NextResponse.json({error: error.message})
+        return NextResponse.json({error: error.message}, {status: 400})
     }
 }

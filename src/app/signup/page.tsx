@@ -3,7 +3,6 @@ import React from "react"
 import {useRouter} from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
-import toast from "react-hot-toast";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -31,21 +30,23 @@ export default function SignupPage() {
         city: "",
     })
 
-
     const handleSubmit = async (event: any) => {
         try {
             event.preventDefault();
             if (user.firstName !== "" && user.lastName !== "" && user.email !== "" && user.phone !== "" && user.street !== "" && user.city !== "" && user.password !== "") {
                 await axios.post("/api/users/signup",
                     user
-                )
-                router.push("/login")
+                ).then((res) => {
+                    if (res.data) {
+                        alert("User account create done")
+                        router.push("/login")
+                    }
+                })
             } else {
                 alert("All Field is Required")
             }
         } catch (error: any) {
             console.log("Signup failed", error.message)
-            toast.error(error.message)
         } finally {
             console.log("done")
         }
