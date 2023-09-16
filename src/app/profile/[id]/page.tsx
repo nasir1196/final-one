@@ -64,16 +64,28 @@ export default function UserProfilePage() {
                 </div>
                 <div className="mt-6 mb-3 flex gap-4 md:!gap-14">
                     <div className="flex flex-col items-center justify-center">
-                        <a href={`mailto:${email}`}><h3 className="text-bluePrimary text-2xl font-bold">{email}</h3></a>
+                        <div>
+                            <h1 className={"text-center"}>Email</h1>
+                            <a href={`mailto:${email}`}><h3 className="text-bluePrimary text-2xl font-bold">{email}</h3></a>
+                        </div>
                     </div>
                     <div className="flex flex-col items-center justify-center">
-                        <a href={`tel:+${phone}`}><h3 className="text-bluePrimary text-2xl font-bold">{phone}</h3></a>
+                        <div>
+                            <h1 className={"text-center"}>Phone</h1>
+                            <a href={`tel:+${phone}`}><h3 className="text-bluePrimary text-2xl font-bold">{phone}</h3></a>
+                        </div>
                     </div>
                     <div className="flex flex-col items-center justify-center">
-                        <h3 className="text-bluePrimary text-2xl font-bold">{city}</h3>
+                        <div>
+                            <h1 className={"text-center"}>City</h1>
+                            <h3 className="text-bluePrimary text-2xl font-bold">{city}</h3>
+                        </div>
                     </div>
                     <div className="flex flex-col items-center justify-center">
-                        <h3 className="text-bluePrimary text-2xl font-bold">{street}</h3>
+                        <div>
+                            <h1 className={"text-center"}>Street</h1>
+                            <h3 className="text-bluePrimary text-2xl font-bold">{street}</h3>
+                        </div>
                     </div>
                 </div>
             </div>
