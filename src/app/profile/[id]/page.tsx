@@ -37,7 +37,6 @@ export default function UserProfilePage() {
     // }, [something]);
 
 
-
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2 mt-5">
             <div>
@@ -52,7 +51,9 @@ export default function UserProfilePage() {
                      style={{backgroundImage: 'url("https://i.ibb.co/FWggPq1/banner.png")'}}>
                     <div
                         className="absolute -bottom-12 flex h-[88px] w-[88px] items-center justify-center rounded-full border-[4px] border-white bg-pink-400">
-                        <img className="h-full w-full rounded-full" src="https://i.ibb.co/6YbS9ff/avatar11.png" alt=""/>
+                        <img className="h-full w-full rounded-full"
+                             src="https://onecallkuwait.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdanger.9d5d7f33.png&w=640&q=75"
+                             alt=""/>
                     </div>
                 </div>
                 <div className="mt-16 flex flex-col items-center">
@@ -66,13 +67,15 @@ export default function UserProfilePage() {
                     <div className="flex flex-col items-center justify-center">
                         <div>
                             <h1 className={"text-center"}>Email</h1>
-                            <a href={`mailto:${email}`}><h3 className="text-bluePrimary text-2xl font-bold">{email}</h3></a>
+                            <a href={`mailto:${email}`}><h3 className="text-bluePrimary text-2xl font-bold">{email}</h3>
+                            </a>
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center">
                         <div>
                             <h1 className={"text-center"}>Phone</h1>
-                            <a href={`tel:+${phone}`}><h3 className="text-bluePrimary text-2xl font-bold">{phone}</h3></a>
+                            <a href={`tel:+${phone}`}><h3 className="text-bluePrimary text-2xl font-bold">{phone}</h3>
+                            </a>
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center">
