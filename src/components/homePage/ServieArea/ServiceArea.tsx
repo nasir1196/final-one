@@ -9,7 +9,6 @@ import {primaryOrange} from "../../color";
 
 const ServiceArea = () =>
 {
-    const primaryBlue = "#002bff"
     return (
         <Box>
             <Box sx={ { textAlign: "center", my: { xs: "2rem", md: "5rem" } } }>
@@ -19,7 +18,7 @@ const ServiceArea = () =>
             <Box sx={ { width: { md: "70%", xs: "95%" }, m: "0 auto" } }>
                 <Grid container spacing={ 2 }>
                     <Grid sx={ {
-                        backgroundColor: primaryBlue
+                        backgroundColor: "#002bff"
                     } }
                         item xs={ 12 }
                         md={ 3 }
