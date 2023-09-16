@@ -4,12 +4,12 @@ import bcrypt from "bcrypt";
 import User from "@/models/user";
 import {sendEmail} from "@/helpers/mailer";
 
-  connect().then(r => console.log(r))
 
 export async function POST(request: NextRequest) {
     try {
+        await connect();
         const reqBody = await request.json();
-        const {firstName, lastName, email,phone, street, city, password} = reqBody;
+        const {firstName, lastName, email, phone, street, city, password} = reqBody;
 
         //if check user already exist
         const user = await User.findOne({email})
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
         const savedUser = await newUser.save();
 
         // send verification email after last work for smtp work
-        await sendEmail({email, emailType:"VERIFY", userId: savedUser._id})
+        await sendEmail({email, emailType: "VERIFY", userId: savedUser._id})
 
         return NextResponse.json({message: "User created successfully", success: true, savedUser})
 

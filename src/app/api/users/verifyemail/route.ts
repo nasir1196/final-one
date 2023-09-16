@@ -4,11 +4,12 @@ import {NextRequest, NextResponse} from "next/server";
 import {undefined} from "zod";
 
 
-connect().then(r => console.log(r))
+
 
 
 export async function POST(request: NextRequest) {
     try {
+        await connect();
         const reqBody = await request.json()
         const {token} = reqBody
 

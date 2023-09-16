@@ -4,10 +4,10 @@ import bcrypt from "bcrypt";
 import User from "@/models/user";
 import jwt from "jsonwebtoken"
 
-connect().then((r) => console.log(r))
 
 export async function POST(request: NextRequest) {
     try {
+        await connect();
         const requestBody = await request.json();
         const {email, password} = requestBody;
 
