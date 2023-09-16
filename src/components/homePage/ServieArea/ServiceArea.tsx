@@ -80,7 +80,7 @@ const ServiceArea = () =>
                     </Grid>
                 </Grid>
             </Box>
-            <Box sx={ { height: { md: "60vh" }, backgroundColor: primaryBlue } }>
+            <Box sx={ { height: { md: "60vh" }, backgroundColor: "#002bff" } }>
                 <Box sx={ { textAlign: "center", color: "#FFFFFF", p: { xs: "2rem", md: "5rem" } } }>
                     <Typography>24/7 EMERGENCY SERVICE NEAR YOU.</Typography>
                     <Typography variant="h3" sx={ { fontWeight: { xs: "bold", md: "bolder" } } }>Get a fast response, call us now</Typography>
