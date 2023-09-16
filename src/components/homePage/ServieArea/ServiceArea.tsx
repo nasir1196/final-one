@@ -91,7 +91,7 @@ const ServiceArea = () =>
                             py: "1rem",
                             px: { xs: "1.5rem", md: "3rem" },
                             m: "0.8rem",
-                            backgroundColor: "#01030EFF",
+                            backgroundColor: "#01030E",
                             color: "#FFFFFF",
                             "&:hover": { backgroundColor: "#F7BF23", color: '#01030EFF' }
                         } }>{ <MoreTimeIcon /> } <a href={`tel:+96566515342`}>REQUEST A CALL</a> </Button>
@@ -100,8 +100,8 @@ const ServiceArea = () =>
                             px: { xs: "1.5rem", md: "3rem" },
                             m: "0.8rem",
                             backgroundColor: "#F7BF23",
-                            color: "#01030EFF",
-                            "&:hover": { backgroundColor: "#01030EFF", color: '#FFFFFF'
+                            color: "#01030E",
+                            "&:hover": { backgroundColor: "#01030E", color: '#FFFFFF'
                             } } }>{ <TtyIcon /> } <a href={`tel:+96566515342`}>66515342</a></Button>
                     </Box>
                 </Box>
