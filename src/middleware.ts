@@ -33,5 +33,6 @@ export const config = {
         "/servicePage",
         "/appointment",
         "/forgotPassword",
+        "/isAdmin"
     ]
 }
